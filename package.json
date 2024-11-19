@@ -7,7 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node api/index.js",
-    "dev": "nodemon api/index.js"
+    "dev": "nodemon api/index.js",
+    "build": "npm install && npm install --prefix vite-project && npm run build --prefix vite-prooject"
   },
   "keywords": [],
   "author": "",

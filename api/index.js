@@ -3,6 +3,9 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth.route.js';
 import cookieParser from 'cookie-parser';
+import path from 'path';
+import { updateUser } from './controllers/user.controller.js';
+
 
 
 dotenv.config();
@@ -13,6 +16,7 @@ try {
 } catch (error) {
     
 }((err) => {console.log("err");});
+const __dirname = path.resolve();
 
 const app = express();
 app.use(express.json());
@@ -25,6 +29,14 @@ app.listen(3000, () => {
 });
 
 app.use('/api/auth',authRoutes);
+
+app.use(express.static(path.join(__dirname,'/vite-project/dist')));
+app.get('*', (req,res)=> {
+    res.sendFile(path.join(__dirname, 'vite-project' , 'dist','index.html'));
+
+});
+
+
 app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;
     const message = err.message || 'internal server error';
