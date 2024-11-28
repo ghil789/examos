@@ -10,7 +10,7 @@ import { updateUser } from './controllers/user.controller.js';
 
 dotenv.config();
 
-mongoose.connect(process.env.MONGO).then( () => {console.log("mongodb is connected");});
+mongoose.connect(yodahemeless:PA0i6MjhDiMVaWnM@exam-bank.26z7h.mongodb.net/?retryWrites=true&w=majority&appName=exam-bank).then( () => {console.log("mongodb is connected");});
 try {
     
 } catch (error) {
